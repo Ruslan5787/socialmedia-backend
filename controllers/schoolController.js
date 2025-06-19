@@ -209,15 +209,15 @@ const createStudent = async (req, res) => {
 
         await newUser.save();
 
-        if (updatedGroup.chatId) {
-            await Room.findByIdAndUpdate(
-                updatedGroup.chatId,
-                {$push: {users: newUser._id}},
-                {new: true}
-            );
-        }
+        // if (updatedGroup.chatId) {
+        //     await Room.findByIdAndUpdate(
+        //         updatedGroup.chatId,
+        //         {$push: {users: newUser._id}},
+        //         {new: true}
+        //     );
+        // }
 
-        // groupForUser.users.push(newUser)
+        groupForUser.users.push(newUser)
         chatGroup.users.push(newUser)
         await groupForUser.save();
 
